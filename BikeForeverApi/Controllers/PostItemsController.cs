@@ -27,13 +27,6 @@ namespace BikeForeverApi.Controllers
             _configuration = configuration;
         }
 
-        // GET: api/PostItems
-        [HttpGet]
-        public IEnumerable<PostItem> GetPostItem()
-        {
-            return _context.PostItem;
-        }
-
         // GET: api/PostItems/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPostItem([FromRoute] int id)
@@ -127,6 +120,13 @@ namespace BikeForeverApi.Controllers
         private bool PostItemExists(int id)
         {
             return _context.PostItem.Any(e => e.Id == id);
+        }
+
+        // GET: api/PostItems
+        [HttpGet]
+        public IEnumerable<PostItem> GetPostItem()
+        {
+            return _context.PostItem;
         }
 
         // GET: api/PostItems/Tags
